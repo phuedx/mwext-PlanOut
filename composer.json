@@ -1,0 +1,9 @@
+{
+	"name": "mediawiki/planout",
+	"type": "mediawiki-extension",
+	"description": "PlanOut integration for MediaWiki using Vimeo's ABLincoln library.",
+	"license": "GPL-2.0+",
+	"require": {
+		"vimeo/ablincoln": "0.1.*"
+	}
+}
