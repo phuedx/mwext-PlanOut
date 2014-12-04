@@ -2,7 +2,7 @@
 
 namespace Test\PlanOut;
 
-use PlanOut\SimpleExperiment;
+use PlanOut\Experiments\SimpleExperiment;
 use MediaWikiTestCase;
 use User;
 use Hooks;

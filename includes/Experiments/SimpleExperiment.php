@@ -1,6 +1,6 @@
 <?php
 
-namespace PlanOut;
+namespace PlanOut\Experiments;
 
 use Vimeo\ABLincoln\Experiments\SimpleExperiment as BaseSimpleExperiment;
 

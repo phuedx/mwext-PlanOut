@@ -9,12 +9,18 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 $autoloadClasses = array(
 	'Hooks',
-	'SimpleExperiment',
-	'ExperimentCollection',
+	'Experiments\\SimpleExperiment',
 );
 
 foreach ( $autoloadClasses as $autoloadClass ) {
-	$wgAutoloadClasses["PlanOut\\{$autoloadClass}"] = __DIR__ . "/includes/{$autoloadClass}.php";
+	$partialPath = str_replace( '\\', DIRECTORY_SEPARATOR, $autoloadClass ) . '.php';
+	$path = implode( DIRECTORY_SEPARATOR, array(
+		__DIR__,
+		'includes',
+		$partialPath,
+	) );
+
+	$wgAutoloadClasses["PlanOut\\{$autoloadClass}"] = $path;
 }
 
 // Hooks
