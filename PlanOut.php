@@ -10,6 +10,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $autoloadClasses = array(
 	'Hooks',
 	'Experiments\\SimpleExperiment',
+	'Experiments\\ExperimentLoader',
+	'Api\\QueryExperimentParams',
 );
 
 foreach ( $autoloadClasses as $autoloadClass ) {
@@ -26,3 +28,7 @@ foreach ( $autoloadClasses as $autoloadClass ) {
 // Hooks
 
 $wgHooks[ 'ResourceLoaderGetConfigVars' ][] = 'PlanOut\\Hooks::onResourceLoaderGetConfigVars';
+
+// API modules
+
+$wgAPIModules['queryexperimentparams'] = 'PlanOut\\Api\\QueryExperimentParams';
