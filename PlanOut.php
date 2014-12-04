@@ -26,10 +26,6 @@ foreach ( $autoloadClasses as $autoloadClass ) {
 	$wgAutoloadClasses["PlanOut\\{$autoloadClass}"] = $path;
 }
 
-// Hooks
-
-$wgHooks[ 'ResourceLoaderGetConfigVars' ][] = 'PlanOut\\Hooks::onResourceLoaderGetConfigVars';
-
 // API modules
 
 $wgAPIModules['queryexperimentparams'] = 'PlanOut\\Api\\QueryExperimentParams';
