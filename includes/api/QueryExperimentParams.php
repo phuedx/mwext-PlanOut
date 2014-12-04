@@ -5,6 +5,7 @@ namespace PlanOut\Api;
 use ApiBase;
 use ApiMain;
 use PlanOut\Experiments\ExperimentLoader;
+use PlanOut\Experiments\HookExperimentLoader;
 use InvalidArgumentException;
 
 /**
@@ -22,9 +23,11 @@ class QueryExperimentParams extends ApiBase {
 	 */
 	public function __construct(
 		ApiMain $mainModule,
+		$moduleName,
+		$modulePrefix = '',
 		ExperimentLoader $experimentLoader = null
 	) {
-		parent::__construct( $mainModule, 'queryexperimentparams' );
+		parent::__construct( $mainModule, $moduleName, $modulePrefix );
 
 		$this->experimentLoader = $experimentLoader ?: new HookExperimentLoader();
 	}

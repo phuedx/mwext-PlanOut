@@ -38,6 +38,8 @@ class QueryExperimentParamsTest extends MediaWikiTestCase {
 		$this->experimentLoader = $this->getMock('\\PlanOut\\Experiments\\ExperimentLoader');
 		$this->api = new QueryExperimentParams(
 			new ApiMain( $this->context ),
+			'queryexperimentparams',
+			'',
 			$this->experimentLoader
 		);
 		$this->experiment = new StubExperiment();
