@@ -11,6 +11,7 @@ $autoloadClasses = array(
 	'Hooks',
 	'Experiments\\SimpleExperiment',
 	'Experiments\\ExperimentLoader',
+	'Experiments\\HookExperimentLoader',
 	'Api\\QueryExperimentParams',
 );
 

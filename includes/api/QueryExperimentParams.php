@@ -12,6 +12,8 @@ use InvalidArgumentException;
  */
 class QueryExperimentParams extends ApiBase {
 
+	private $experimentLoader;
+
 	/**
 	 * Constructs a new instance of the \PlanOut\Api\QueryExperimentParams class.
 	 *
@@ -24,7 +26,7 @@ class QueryExperimentParams extends ApiBase {
 	) {
 		parent::__construct( $mainModule, 'queryexperimentparams' );
 
-		$this->experimentLoader = $experimentLoader;
+		$this->experimentLoader = $experimentLoader ?: new HookExperimentLoader();
 	}
 
 	/**
