@@ -29,3 +29,16 @@ foreach ( $autoloadClasses as $autoloadClass ) {
 // API modules
 
 $wgAPIModules['queryexperimentparams'] = 'PlanOut\\Api\\QueryExperimentParams';
+
+// Modules
+
+$wgResourceModules['ext.planOut'] = array(
+	'scripts' => 'modules/PlanOut.js',
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'PlanOut',
+	'dependencies' => 'mediawiki.api',
+	'targets' => array(
+		'desktop',
+		'mobile'
+	),
+);
