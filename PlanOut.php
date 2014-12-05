@@ -26,6 +26,14 @@ foreach ( $autoloadClasses as $autoloadClass ) {
 	$wgAutoloadClasses["PlanOut\\{$autoloadClass}"] = $path;
 }
 
+// Hooks
+
+$wgHooks['UnitTestsList'][] = function ( &$files ) {
+	$files[] = __DIR__ . '/test';
+
+	return true;
+};
+
 // API modules
 
 $wgAPIModules['queryexperimentparams'] = 'PlanOut\\Api\\QueryExperimentParams';
