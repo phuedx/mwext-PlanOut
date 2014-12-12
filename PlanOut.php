@@ -13,6 +13,7 @@ $autoloadClasses = array(
 	'Experiments\\ExperimentLoader',
 	'Experiments\\HookExperimentLoader',
 	'Api\\QueryExperimentParams',
+	'Log\\EventLoggingLogger',
 );
 
 foreach ( $autoloadClasses as $autoloadClass ) {
@@ -50,3 +51,7 @@ $wgResourceModules['ext.planOut'] = array(
 		'mobile'
 	),
 );
+
+// Schemas
+
+$wgEventLoggingSchemas['PlanOutExperimentExposure'] = 10745784;
