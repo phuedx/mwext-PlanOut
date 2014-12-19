@@ -30,10 +30,22 @@ foreach ( $autoloadClasses as $autoloadClass ) {
 // Hooks
 
 $wgHooks['UnitTestsList'][] = function ( &$files ) {
-	$files[] = __DIR__ . '/test';
+	$files[] = __DIR__ . '/test/phpunit';
 
 	return true;
 };
+
+$wgHooks['ResourceLoaderTestModules'][] =
+	function ( array &$testModules, ResourceLoader &$resourceLoader ) {
+		$testModules['qunit']['ext.planOut.test'] = array(
+			'scripts' => 'modules/PlanOut.js',
+			'localBasePath' => __DIR__ . '/test/qunit',
+			'remoteExtPath' => 'PlanOut/test/qunit',
+			'dependencies' => array(
+				'ext.planOut',
+			),
+		);
+	};
 
 // API modules
 
