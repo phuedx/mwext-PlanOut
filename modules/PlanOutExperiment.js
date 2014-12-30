@@ -1,5 +1,9 @@
 ( function ( mw ) {
 
+	var DEFAULT_PARAMS = {
+		in_experiment: true
+	};
+
 	/**
 	 * Constructs a new instance of the `mw.PlanOutExperiment` class, which
 	 * presents the same interface as the `\Vimeo\ABLincoln\Experiments\SimpleExperiment`
@@ -12,6 +16,8 @@
 	 *  `queryexperimentparams` API.
 	 */
 	mw.PlanOutExperiment = function ( params ) {
+		params = $.extend( {}, DEFAULT_PARAMS, params );
+
 		return {
 
 			/**
@@ -37,6 +43,15 @@
 			 */
 			getParams: function () {
 				return params;
+			},
+
+			/**
+			 * Gets whether or not the user is in the experiment.
+			 *
+			 * @return {boolean}
+			 */
+			inExperiment: function () {
+				return params.in_experiment;
 			}
 		};
 	};

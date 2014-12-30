@@ -1,4 +1,4 @@
-( function ( mw ) {
+( function ( mw, $ ) {
 
 	QUnit.module( 'ext.planOut: Experiment', {
 		setup: function () {
@@ -21,4 +21,17 @@
 		assert.strictEqual( this.experiment.get( 'baz', 'quux' ), 'quux' );
 	} );
 
-} ( mediaWiki ) );
+	QUnit.test( 'the user should be in the experiment by default', 1, function ( assert ) {
+		assert.strictEqual( this.experiment.inExperiment(), true );
+	} );
+
+	QUnit.test( "the user shouldn't be in the experiment when the in_experiment parameter is false", 1, function ( assert ) {
+		var params = $.extend( {}, this.params, {
+				in_experiment: false
+			} ),
+			experiment = new mw.PlanOutExperiment( params );
+
+		assert.strictEqual( experiment.inExperiment(), false );
+	} );
+
+} ( mediaWiki, jQuery ) );
