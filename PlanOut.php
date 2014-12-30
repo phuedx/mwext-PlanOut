@@ -38,7 +38,10 @@ $wgHooks['UnitTestsList'][] = function ( &$files ) {
 $wgHooks['ResourceLoaderTestModules'][] =
 	function ( array &$testModules, ResourceLoader &$resourceLoader ) {
 		$testModules['qunit']['ext.planOut.test'] = array(
-			'scripts' => 'modules/PlanOut.js',
+			'scripts' => array(
+				'modules/PlanOutExperiment.js',
+				'modules/PlanOut.js',
+			),
 			'localBasePath' => __DIR__ . '/test/qunit',
 			'remoteExtPath' => 'PlanOut/test/qunit',
 			'dependencies' => array(
@@ -54,7 +57,10 @@ $wgAPIModules['queryexperimentparams'] = 'PlanOut\\Api\\QueryExperimentParams';
 // Modules
 
 $wgResourceModules['ext.planOut'] = array(
-	'scripts' => 'modules/PlanOut.js',
+	'scripts' => array(
+		'modules/PlanOutExperiment.js',
+		'modules/PlanOut.js',
+	),
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'PlanOut',
 	'dependencies' => 'mediawiki.api',

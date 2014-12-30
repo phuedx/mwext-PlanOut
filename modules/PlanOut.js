@@ -32,7 +32,9 @@
 					user_token: userToken
 				} )
 				.done( function ( data ) {
-					deferred.resolve( data['query']['experiment_params'] );
+					deferred.resolve(
+						new mw.PlanOutExperiment( data['query']['experiment_params'] )
+					);
 				} )
 				.fail( deferred.reject );
 

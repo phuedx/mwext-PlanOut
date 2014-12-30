@@ -39,8 +39,8 @@
         } );
 
         this.queryExperimentParams()
-            .then( function ( experimentParams ) {
-                assert.strictEqual( experimentParams, expectedExperimentParams );
+            .then( function ( experiment ) {
+                assert.strictEqual( experiment.getParams(), expectedExperimentParams );
             } );
     } );
 
