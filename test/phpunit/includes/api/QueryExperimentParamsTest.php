@@ -72,9 +72,9 @@ class QueryExperimentParamsTest extends MediaWikiTestCase {
 
 		$this->api->execute();
 
-		$data = $this->api->getResult()->getData();
+		$queryData = $this->api->getResult()->getResultData( 'query' );
 
-		$this->assertEquals( $data['query'], array(
+		$this->assertEquals( $queryData, array(
 			'experiment_params' => array(
 				'inputs' => array(
 					'userid' => '1234567890abcdef',
